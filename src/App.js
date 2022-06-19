@@ -31,7 +31,7 @@ function App() {
             />
           </div>
           {!WeatherData.name &&<div className='head'>
-          Type in Your City to Know Your What the weather is like
+          Enter Your City to See the Current Weather
         </div> 
         }
       
