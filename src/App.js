@@ -8,6 +8,14 @@ function App() {
     const {value} = e.target
     setLocation(value)
   }
+
+  function handleClick(){
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=52158a0fe122b54dddda6f33a6fadb23`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => setWeatherData(data))
+    setLocation('') 
+  }
   function handleSubmit(event){
     if(event.key === 'Enter'){
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=52158a0fe122b54dddda6f33a6fadb23`
@@ -28,7 +36,7 @@ function App() {
               name='city'
               placeholder='Search Location'
               onKeyPress={handleSubmit}
-            />
+            /><i  onClick={handleClick} className="fa-solid fa-magnifying-glass"></i>
           </div>
           {!WeatherData.name &&<div className='head'>
           Enter Your City to See the Current Weather
